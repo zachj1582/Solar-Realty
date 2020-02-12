@@ -31,4 +31,7 @@ app.post('/auth/logout', ac.logout)
 app.get('/auth/user', ac.getUser)
 //products
 app.get('/api/cart/:id', pc.getCart)
+app.post('/api/cart', pc.addToCart)
+app.get('/api/products', pc.getProducts)
+
 
