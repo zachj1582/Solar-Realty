@@ -25,3 +25,10 @@ create table order_items (
     qty int,
     price decimal
 );
+
+create table site_admins(
+    admin_id serial primary key,
+    full_name varchar(250) not null,
+    email varchar(250) not null,
+    password varchar(250) not null
+);

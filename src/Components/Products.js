@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Auth from './Auth'
 
 class Products extends Component {
     constructor(props){

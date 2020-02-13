@@ -6,16 +6,18 @@ import Auth from './Components/Auth'
 import Cart from './Components/Cart'
 import Form from './Components/Form'
 import MapView from './Components/MapView'
-import Footer from './Components/Footer'
+import Admin from './Components/Admin'
+import AdminLogin from './Components/AdminLogin'
 
 export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
-        <Route exact path='/' component={Footer}/>
         <Route path='/products' component={Products}/>
         <Route path='/auth' component={Auth}/>
         <Route path='cart' component={Cart}/>
         <Route path='/form/:id' component={Form}/>
         <Route path='/mapview' component={MapView}/>
+        <Route exact path='/admin' component={Admin}/>
+        <Route path='/admin/login' component={AdminLogin}/>
     </Switch>
 )
