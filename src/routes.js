@@ -8,16 +8,18 @@ import Form from './Components/Form'
 import MapView from './Components/MapView'
 import Admin from './Components/Admin'
 import AdminLogin from './Components/AdminLogin'
+import Item from './Components/Item'
 
 export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
         <Route path='/products' component={Products}/>
         <Route path='/auth' component={Auth}/>
-        <Route path='cart' component={Cart}/>
+        <Route path='/cart' component={Cart}/>
         <Route path='/form/:id' component={Form}/>
         <Route path='/mapview' component={MapView}/>
         <Route exact path='/admin' component={Admin}/>
         <Route path='/admin/login' component={AdminLogin}/>
+        <Route path='/item/:id' component={Item}/>
     </Switch>
 )

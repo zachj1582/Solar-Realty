@@ -1,3 +1,21 @@
-.App{
-    text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-image: radial-gradient(
+    circle at bottom right,
+    #d55961,
+    #180640,
+    #24064c,
+    #212121
+  );
+  background-repeat: no-repeat;
+  background-color: rgb(33, 33, 33);
+  background-size: cover;
+  background-position: center;
+  color: rgb(217, 218, 219);
+}
+
+.App {
+  text-align: center;
 }

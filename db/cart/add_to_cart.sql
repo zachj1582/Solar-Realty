@@ -4,7 +4,7 @@ insert into order_items (
     qty,
     price
 ) values (
-    ${order_id},
+    ${customer_order_id},
     ${product_id},
     1,
     ${price}
