@@ -5,7 +5,6 @@ import axios from "axios";
 import "./Auth.css";
 
 const Auth = props => {
-  console.log(props)
   const [emailInput, setEmailInput] = useState("");
   const [passInput, setPassInput] = useState("");
 

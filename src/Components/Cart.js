@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import Auth from "./Auth";
 import { connect } from "react-redux";
+import {getUser} from '../redux/UserReducer'
+import StripeCheckout from 'react-stripe-checkout'
+import stripe from './StripeKey'
 
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: []
+      cart: [],
+      cartTotal: 0
     };
   }
 
@@ -15,14 +19,20 @@ class Cart extends Component {
     this.reRender();
   }
 
-  componentDidUpdate(){
-    
+  componentDidUpdate(prevProps){
+    console.log(this.props.user)
+    if(prevProps.user.email !== this.props.user.email || prevProps.user.customer_order_id !== this.props.user.customer_order_id){
+      this.reRender()
+    }
   }
 
   reRender = () => {
     axios
       .get(`/api/cart/${this.props.user.customer_order_id}`)
-      .then(res => this.setState({ cart: res.data }))
+      .then(res => {
+        this.setState({ cart: res.data })
+        this.cartTotal()
+      })
       .catch(err => console.log(err));
   };
 
@@ -38,6 +48,21 @@ class Cart extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  onToken = (token) => {
+    token.card = void 0;
+    axios.post('/api/payment', { token, amount: this.state.cartTotal.toFixed(2), customer_order_id: this.props.user.customer_order_id, customer_id: this.props.user.customer_id }).then(res => {
+      this.props.getUser(res.data)
+      alert('Payment Successful! Hello World!!')
+    }).catch(err => console.log(err))
+  }
+
+  cartTotal = () => {
+    const total = this.state.cart.reduce((total, curr)=>{
+      return total + +curr.price
+    }, 0)
+    this.setState({cartTotal: total * 0.0000000001})
+  }
 
   render() {
     const mappedCart = this.state.cart.map((e, i) => {
@@ -63,7 +88,21 @@ class Cart extends Component {
       );
     });
     return (
-      <div>{this.props.user.email ? <div>{mappedCart}</div> : <Auth />}</div>
+      <div>{this.props.user.email ? 
+      <div>
+        {mappedCart}
+        <div>
+          Total: ${this.state.cartTotal.toFixed(2)}
+        <StripeCheckout
+          token={this.onToken}
+          stripeKey= {stripe.pub_key}
+          amount={this.state.cartTotal * 100}
+        />
+        </div>
+      </div> 
+      : <Auth 
+      />}
+      </div>
     );
   }
 }
@@ -71,4 +110,4 @@ function mapStateToProps(state) {
   return { user: state.user };
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, {getUser})(Cart);
