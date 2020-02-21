@@ -9,4 +9,13 @@
     transition-timing-function: ease;
     transition: ease-in-out;
     border-radius: 6px;
+    z-index: 3;
+}
+
+.auth_button{
+    color: rgb(33,33,33);
+}
+
+.login_head{
+    color: rgb(33,33,33);
 }

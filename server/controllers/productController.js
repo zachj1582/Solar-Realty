@@ -30,7 +30,6 @@ module.exports = {
 
     },
     getProduct: (req,res) => {
-        console.log(req.params)
         const {id} = req.params
         const db = req.app.get('db')
         db.products.get_item(id).then(item => {
@@ -38,7 +37,6 @@ module.exports = {
         }).catch(err => res.status(500).send(err))
     },
     soldItem: (req,res) => {
-        console.log(req.params)
         const {id} = req.params
         const db = req.app.get('db')
 
@@ -51,5 +49,14 @@ module.exports = {
         db.products.add_property(name, image, description, price).then(data => {
             res.status(200).send(data)
         }).catch(err => res.status(500).send(err))
+    },
+    editProperty: (req,res) => {
+        console.log(req.body)
+        const {id} = req.params
+        const {product_image, product_name, product_description, price} = req.body
+        const db = req.app.get('db')
+
+        db.products.edit_product(id, product_name, product_image, product_description, price).then(data => res.sendStatus(200))
+        .catch(err => res.status(500).send(err))
     }
 } 

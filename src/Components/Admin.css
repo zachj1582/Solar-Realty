@@ -20,7 +20,6 @@
     width: auto;
     display: flex;
     flex-direction: column;
-
 }
 
 .register{
@@ -31,3 +30,21 @@
 .register_button{
     color: rgb(217, 218, 219);
 }
+
+.edit_field{
+    border: 2px solid  black;
+    margin: 2px;
+    box-sizing: border-box;
+    border-radius: 3px;
+
+}
+
+.edit_img{
+    display: flex;
+
+}
+
+.admin_login{
+    color: rgb(33, 33, 33);
+}
+

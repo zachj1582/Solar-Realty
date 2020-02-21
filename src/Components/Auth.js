@@ -31,7 +31,7 @@ const Auth = props => {
   return (
     <div className="auth">
       <div>
-        <p>Login or Reister</p>
+        <p className='login_head'>Login or Reister</p>
         <input
           value={emailInput}
           placeholder="Email"
@@ -43,10 +43,10 @@ const Auth = props => {
           placeholder="Password"
           onChange={e => setPassInput(e.target.value)}
         />
-        <button onClick={login}>Login</button>
-        <button onClick={register}>Register</button>
+        <button className='auth_button' onClick={login}>Login</button>
+        <button className='auth_button' onClick={register}>Register</button>
         {props.toggleFn &&
-        <button onClick={() => props.toggleFn()}>Close</button>
+        <button className='auth_button' onClick={() => props.toggleFn()}>Close</button>
         }
       </div>
     </div>

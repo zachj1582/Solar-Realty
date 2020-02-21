@@ -31,8 +31,8 @@ const AdminLogin = props => {
         placeholder="Password"
         onChange={e => setPassInput(e.target.value)}
       />
-      <button onClick={login}>Login</button>
-      <button onClick={() => props.toggleFn(!false)} >Close</button>
+      <button className='admin_login' onClick={login}>Login</button>
+      <button className='admin_login' onClick={() => props.toggleFn(!false)} >Close</button>
     </div>
   );
 };

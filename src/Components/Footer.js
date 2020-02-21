@@ -10,7 +10,7 @@ const Footer = props => {
 
   return (
     <div className="footer">
-      <img src={Logo} alt='logo' />
+      <img className='footer_logo' src={Logo} alt='logo' />
       <button onClick={() => setShowAuth(!showAuth)}>Admins</button>
       <p className='boring_info'>
         Solar Realty, Inc. is a real estate franchise company. Each
