@@ -38,6 +38,8 @@ app.post('/api/cart', pc.addToCart)
 app.get('/api/products', pc.getProducts)
 app.delete('/api/cart/:id', pc.removeItem)
 app.get('/api/product/:id', pc.getProduct)
+app.delete('api/product/:id', pc.soldItem)
+app.post('/api/product', pc.addProperty)
 //admin
 app.post('/auth/adminregister', adminc.registerAdmin)
 app.post('/auth/adminlogin', adminc.loginAdmin)

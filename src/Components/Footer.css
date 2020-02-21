@@ -1,6 +1,11 @@
 .footer{
     height: auto;
     width: 100%;
-    position: fixed;
     bottom: 0;
+}
+
+.boring_info{
+    font-size: 10px;
+    padding: 20px;
+    text-align: left;
 }

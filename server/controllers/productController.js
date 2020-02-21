@@ -36,5 +36,19 @@ module.exports = {
         db.products.get_item(id).then(item => {
             res.status(200).send(item)
         }).catch(err => res.status(500).send(err))
+    },
+    soldItem: (req,res) => {
+        const {id} = req.params
+        const db = req.app.get('db')
+
+        db.delete_item(id).then(data => res.status(200).send(data))
+    },
+    addProperty: (req,res) => {
+        const {image, name, description, price} = req.body
+        const db = req.app.get('db')
+
+        db.products.add_property(name, image, description, price).then(data => {
+            res.status(200).send(data)
+        }).catch(err => res.status(500).send(err))
     }
 } 

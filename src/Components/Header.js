@@ -20,7 +20,7 @@ const Header = props => {
         <button onClick={()=> props.history.push('/cart')} >Cart</button>
       </div>
       }
-      {showAuth ? <Auth toggleFn={setShowAuth(!showAuth)} /> : null}
+      {showAuth ? <Auth toggleFn={setShowAuth} /> : null}
     </div>
   );
 };

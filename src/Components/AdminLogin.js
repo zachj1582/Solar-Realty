@@ -32,6 +32,7 @@ const AdminLogin = props => {
         onChange={e => setPassInput(e.target.value)}
       />
       <button onClick={login}>Login</button>
+      <button onClick={() => props.toggleFn(!false)} >Close</button>
     </div>
   );
 };

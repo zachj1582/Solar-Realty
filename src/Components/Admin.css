@@ -1,0 +1,33 @@
+.sold_button{
+    font-weight: bolder;
+    font-size: 15px;
+    color: rgb(217, 218, 219);
+    padding: 1px 6px 20px 10px;
+    display: flex;
+    width: 50%;
+}
+
+.admin_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 25px;
+    align-items: center;
+}
+
+.edit{
+    height: 300px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+}
+
+.register_button{
+    color: rgb(217, 218, 219);
+}
