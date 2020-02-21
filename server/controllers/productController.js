@@ -38,10 +38,11 @@ module.exports = {
         }).catch(err => res.status(500).send(err))
     },
     soldItem: (req,res) => {
+        console.log(req.params)
         const {id} = req.params
         const db = req.app.get('db')
 
-        db.delete_item(id).then(data => res.status(200).send(data))
+        db.products.delete_item(id).then(data => res.status(200).send(data))
     },
     addProperty: (req,res) => {
         const {image, name, description, price} = req.body

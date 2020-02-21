@@ -40,7 +40,7 @@ class Admin extends Component {
   }
 
   addProperty = (image, name, description, price) => {
-    axios.post("/api/products", {image, name, description, price}).then(res => {
+    axios.post("/api/product", {image, name, description, price}).then(res => {
       this.setState({products: res.data})
       this.toggleProperty()
       alert('Property added')
