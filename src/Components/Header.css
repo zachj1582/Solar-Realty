@@ -13,3 +13,21 @@
     font-size: 20px;
     color: rgb(217, 218, 219);
 }
+
+.head_form_container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu{
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_holder{
+    display: flex;
+    flex-direction: column;
+}

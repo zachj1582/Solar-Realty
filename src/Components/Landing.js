@@ -26,7 +26,7 @@ const Landing = props => {
 			</div>
 		</Carousel>
             <h2>You're a star, your home should be too!</h2>
-            <div onClick={()=> props.history.push('/products')}>Browse listings</div>
+            <div className='browse' onClick={()=> props.history.push('/products')}>Browse listings</div>
             <Footer/>
         </div>
     )

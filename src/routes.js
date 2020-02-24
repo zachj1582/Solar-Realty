@@ -17,7 +17,7 @@ export default (
         <Route path='/auth' component={Auth}/>
         <Route path='/cart' component={Cart}/>
         <Route path='/form/:id' component={Form}/>
-        <Route path='/mapview' component={MapView}/>
+        <Route path='/map' component={MapView}/>
         <Route exact path='/admin' component={Admin}/>
         <Route path='/admin/login' component={AdminLogin}/>
         <Route path='/item/:id' component={Item}/>
