@@ -2,12 +2,19 @@
     height: auto;
     width: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .browse {
     font-weight: bolder;
 }
 
+.carousel_container{
+    border-radius: 10px;
+    overflow: hidden;
+}
 
 
 
@@ -276,6 +283,20 @@
     opacity: 1
 }
 
-@media screen and (min-width: 700px){
-    
+@media screen and (min-width: 750px) {
+    .carousel_container{
+        width: 80%;
+    }
+    .boring_info{
+        margin: 0px 30px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .carousel_container{
+        width: 65%;
+    }
+    .boring_info{
+        margin: 0px 60px;
+    }
 }

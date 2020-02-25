@@ -12,6 +12,11 @@
     height: 5vh;
     font-size: 20px;
     color: rgb(217, 218, 219);
+    padding-right: 5%;
+}
+
+.head_logo{
+    padding-left: 5%;
 }
 
 .head_form_container{
@@ -25,6 +30,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 3.5%;
 }
 
 .login_holder{

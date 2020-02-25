@@ -7,7 +7,9 @@ import './Landing.css'
 const Landing = props => {
     return(
         <div className='landing'>
-            <Carousel>
+			<div className='carousel_container'>
+
+            <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
 			<div>
 				<img src="https://qph.fs.quoracdn.net/main-qimg-b567ca36439fc5ae86f4eb072f4bcd9a" alt="Mercury" />
 				<p className="legend">Mercury</p>
@@ -25,6 +27,7 @@ const Landing = props => {
 				<p className="legend">Venus</p>
 			</div>
 		</Carousel>
+			</div>
             <h2>You're a star, your home should be too!</h2>
             <div className='browse' onClick={()=> props.history.push('/products')}>Browse listings</div>
             <Footer/>

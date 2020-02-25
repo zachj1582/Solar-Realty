@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import {getUser} from '../redux/UserReducer'
 import StripeCheckout from 'react-stripe-checkout'
 import stripe from './StripeKey'
+import {setCart} from '../redux/cartReducer'
 
 class Cart extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class Cart extends Component {
     axios
       .get(`/api/cart/${this.props.user.customer_order_id}`)
       .then(res => {
-        this.setState({ cart: res.data })
+        this.props.setCart(res.data)
         this.cartTotal()
       })
       .catch(err => console.log(err));
@@ -39,11 +40,7 @@ class Cart extends Component {
   removeFromCart = id => {
     axios
       .delete(`/api/cart/${id}`)
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          cart: res.data
-        });
+      .then(() => {
         this.reRender()
       })
       .catch(err => console.log(err));
@@ -65,7 +62,7 @@ class Cart extends Component {
   }
 
   render() {
-    const mappedCart = this.state.cart.map((e, i) => {
+    const mappedCart = this.props.cart.map((e, i) => {
       return (
         <div key={i} className="product_container">
           <div className="img_container">
@@ -89,7 +86,7 @@ class Cart extends Component {
     });
     return (
       <div>{this.props.user.email ? 
-      <div>
+      <div className='products'>
         {mappedCart}
         <div>
           Total: ${this.state.cartTotal.toFixed(2)}
@@ -107,7 +104,8 @@ class Cart extends Component {
   }
 }
 function mapStateToProps(state) {
-  return { user: state.user };
+  console.log(this.props)
+  return { user: state.userReducer.user, cart: state.cartReducer.cart };
 }
 
-export default connect(mapStateToProps, {getUser})(Cart);
+export default connect(mapStateToProps, {getUser, setCart})(Cart);

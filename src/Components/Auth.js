@@ -30,8 +30,8 @@ const Auth = props => {
 
   return (
     <div className="auth">
-      <div>
-        <p className='login_head'>Login or Reister</p>
+      <div className='auth_container'>
+        <p className='login_head'>Login or Register</p>
         <input
           value={emailInput}
           placeholder="Email"

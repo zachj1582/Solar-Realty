@@ -10,7 +10,7 @@ const Footer = props => {
 
   return (
     <div className="footer">
-      <button onClick={() => setShowAuth(!showAuth)}>Admins</button>
+      <button className='admins_button' onClick={() => setShowAuth(!showAuth)}>Admins</button>
       <p className='boring_info'>
         Solar Realty, Inc. is a real estate franchise company. Each
         Solar Realty office is independently owned and operated. Solar Realty, Inc. is an Equal Opportunity Employer and supports the

@@ -22,4 +22,6 @@ body {
 
 button{
   color: rgb(217, 218, 219);
+  background-color: transparent;
+  border: none;
 }

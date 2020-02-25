@@ -69,7 +69,7 @@ class Item extends Component {
             );
           });
         return(
-        <div>{mappedProduct}
+        <div className='cart_container' >{mappedProduct}
         {this.state.showAuth ? <Auth toggleFn={this.handleToggle} /> : null}
         </div>
         )
@@ -77,7 +77,7 @@ class Item extends Component {
 }
 
 function mapStateToProps(state) {
-    return { user: state.user };
+    return { user: state.userReducer.user };
   }
   
   export default connect(mapStateToProps, { getUser })(withRouter(Item));

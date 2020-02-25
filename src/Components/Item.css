@@ -63,4 +63,31 @@
     color: rgb(217, 218, 219);
     padding: 1px 6px 20px 10px;
     display: flex;
+    background-color: transparent;
+    border: none;
+    width: 20%;
+}
+
+@media screen and (min-width: 750px) {
+    .p_desc_item{
+        font-size: 20px;
+    }
+    .p_name_item{
+        font-size: 40px;
+    }
+    .img_container_item{
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .product_container_item{
+        width: 70%;
+    }
+    .cart_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
 }

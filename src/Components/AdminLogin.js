@@ -32,7 +32,7 @@ const AdminLogin = props => {
         onChange={e => setPassInput(e.target.value)}
       />
       <button className='admin_login' onClick={login}>Login</button>
-      <button className='admin_login' onClick={() => props.toggleFn(!false)} >Close</button>
+      <button className='admin_login' onClick={() => props.toggleFn(false)} >Close</button>
     </div>
   );
 };

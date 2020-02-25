@@ -95,8 +95,7 @@ class Admin extends Component {
         product_description,
         price
       })
-      .then(res => {
-        this.setState({ products: res.data });
+      .then(() => {
         this.showEdit();
         this.reRender();
       })
@@ -144,7 +143,7 @@ class Admin extends Component {
                 className="edit_field"
                 name="pName"
                 value={this.state.pName}
-                placeholder="Property Name"
+                placeholder={e.product_name}
                 onChange={e => this.handleInput(e)}
               />
               <input
@@ -212,6 +211,12 @@ class Admin extends Component {
         <header>
           <div onClick={() => this.handleToggle()}>Register new admin</div>
           <div onClick={() => this.toggleProperty()}>Add property</div>
+          <div onClick={() =>
+                    axios.post("/auth/logout").then(res => {
+                      this.props.getUser({});
+                      this.props.history.push("/");
+                    })
+                  } >Logout Admin</div>
         </header>
         {this.state.propertyToggle && (
           <div>
@@ -284,7 +289,7 @@ class Admin extends Component {
 }
 
 function mapStateToProps(state) {
-  return { user: state.user };
+  return { user: state.userReducer.user };
 }
 
 export default connect(mapStateToProps, { getUser })(withRouter(Admin));

@@ -23,6 +23,7 @@
     background-position: center center;
     background-size: cover;
     position: absolute;
+    object-fit: cover;
 }
 
 .info_container{
@@ -68,6 +69,8 @@
     padding: 1px 6px 20px 10px;
     display: flex;
     width: 50%;
+    background-color: transparent;
+    border: none;
 }
 
 /* .products .authp{
@@ -81,3 +84,25 @@
     transition: 0.25s;
     transform: translateY(0);
 } */
+
+@media screen and (min-width: 750px) {
+    .product_container{
+        width: 48%;
+        margin: auto;
+    }
+    .products{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .product_container{
+        width: 32%;
+        margin: auto;
+    }
+    .products{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
