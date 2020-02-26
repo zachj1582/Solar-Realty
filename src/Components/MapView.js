@@ -55,8 +55,8 @@ class MapView extends Component {
     // establish variables
     var w     = '100%';
     var h     = '100vh';
-    var x     = '50%'
-    var y     = '50%'
+    var x     = window.innerWidth / 2
+    var y     = window.innerHeight / 2
     var t0    = new Date().setHours(0,0,0,0);
     var delta = (Date.now() - t0);
     // let s = 0.1;
@@ -78,7 +78,7 @@ svgCanvas.append("circle")
 // planet group
 let container = svgCanvas.append("g")
     .attr("id", "orbit_container")
-    .attr("transform", "translate(" + 726 + "," + 485 + ")")
+    .attr("transform", "translate(" + x + "," + y + ")")
     .attr("fill", "transparent");
 
 // draw planets and moon clusters
@@ -104,7 +104,7 @@ container.selectAll("g.planet").data(planets).enter().append("g")
            return "rotate(" + (d.phi0 + (delta * (d.speed/100))) + ")";
          });
 
-// throttled rotaiton animations
+// throttled rotation animations
 setInterval(function(){
   var delta = (Date.now() - t0);
   svgCanvas.selectAll(".planet_cluster, .moon_cluster").attr("transform", function(d) {

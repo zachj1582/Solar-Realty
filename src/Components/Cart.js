@@ -21,7 +21,6 @@ class Cart extends Component {
   }
 
   componentDidUpdate(prevProps){
-    console.log(this.props.user)
     if(prevProps.user.email !== this.props.user.email || prevProps.user.customer_order_id !== this.props.user.customer_order_id){
       this.reRender()
     }
@@ -55,7 +54,7 @@ class Cart extends Component {
   }
 
   cartTotal = () => {
-    const total = this.state.cart.reduce((total, curr)=>{
+    const total = this.props.cart.reduce((total, curr)=>{
       return total + +curr.price
     }, 0)
     this.setState({cartTotal: total * 0.0000000001})
