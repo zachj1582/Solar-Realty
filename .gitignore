@@ -18,6 +18,7 @@
 .env.test.local
 .env.production.local
 .env
+.env.prod
 ./src/Components/StripeKey.js
 
 npm-debug.log*

@@ -5,8 +5,9 @@ const express = require('express'),
       ac = require('./controllers/authController'),
       pc = require('./controllers/productController'),
       adminc = require('./controllers/adminController'),
-      sc = require('./controllers/stripeController')
+      sc = require('./controllers/stripeController'),
       app = express(),
+      path = require('path'),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 
 
@@ -49,3 +50,7 @@ app.get('/auth/admin', adminc.getAdmin)
 // stripe
 app.post('/api/payment', sc.makePayment)
 
+app.use(express.static(__dirname + '/../build'))
+app.get('*', (req,res)=> {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
