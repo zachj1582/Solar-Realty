@@ -10,9 +10,9 @@ const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRout
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
+    <Router>
       <App />
-    </HashRouter>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
